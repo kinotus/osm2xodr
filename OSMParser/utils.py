@@ -7,7 +7,7 @@ __all__ = ['crs_4326', 'crs_25832', 'transformer', 'giveHeading', 'checkDistance
 import numpy as np
 from pyproj import CRS, Transformer
 from PIL import Image
-from osmread import parse_file, Way, Node
+from .osm_read import Node, Way, parse_file
 
 
 crs_4326  = CRS.from_epsg(4326) # epsg 4326 is wgs84
@@ -109,14 +109,28 @@ global topoParameter
 global topomap
 topomap = None
 topoParameter = None
+
+
+def resetConversionState():
+    global referenceLat
+    global referenceLon
+    global transformer
+    global topomap
+    global topoParameter
+
+    referenceLat = None
+    referenceLon = None
+    transformer = None
+    topomap = None
+    topoParameter = None
+
+
 def convertTopoMap(topomappath, osmpath):
         global topomap
         global topoParameter
         if topomappath is not None:
-                try:
-                        topomap =  np.array(Image.open(topomappath))[:,:,0] #y,x,rgba
-                except:
-                        topomap =  np.array(Image.open(topomappath))[:,:] #y,x,rgba
+                image = np.array(Image.open(topomappath))
+                topomap = image[:, :, 0] if image.ndim == 3 else image[:, :] #y,x,rgba
                 topomap=np.rot90(topomap)
                 topomap=np.rot90(topomap)
         topoParameter = giveMaxMinLongLat(osmpath)

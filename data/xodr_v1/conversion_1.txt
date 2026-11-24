@@ -1,0 +1,24 @@
+Converting data\osm\hietsu.osm -> data\xodr\hietsu.xodr
+minlon = 24.8613491,minlat= 60.1535,maxlon = 24.9350165,maxlat = 60.1959993
+C:\Users\jukka\Documents\GitHub\osm2xodr\OSMParser\utils.py:255: RuntimeWarning: invalid value encountered in scalar divide
+  r2 = ( y1*np.cos(hdg1) + np.sin(hdg1) * (x2-x1)-y2*np.cos(hdg1)) /((np.sin(hdg2)*np.cos(hdg1) - np.sin(hdg1) *np.cos(hdg2) ))
+C:\Users\jukka\Documents\GitHub\osm2xodr\OSMParser\utils.py:255: RuntimeWarning: divide by zero encountered in scalar divide
+  r2 = ( y1*np.cos(hdg1) + np.sin(hdg1) * (x2-x1)-y2*np.cos(hdg1)) /((np.sin(hdg2)*np.cos(hdg1) - np.sin(hdg1) *np.cos(hdg2) ))
+C:\Users\jukka\Documents\GitHub\osm2xodr\OSMParser\utils.py:261: RuntimeWarning: invalid value encountered in scalar add
+  r1 = (-y1*np.cos(hdg2)+ y2*np.cos(hdg2) + np.sin(hdg2) *x1-np.sin(hdg2) *x2 )/(np.sin(hdg1) * np.cos(hdg2) - np.sin(hdg2) *np.cos(hdg1))
+C:\Users\jukka\Documents\GitHub\osm2xodr\OSMParser\arcCurves.py:95: RuntimeWarning: divide by zero encountered in scalar divide
+  curvature = -deltaHdg / length
+C:\Users\jukka\Documents\GitHub\osm2xodr\OSMParser\osmParsing.py:804: RuntimeWarning: invalid value encountered in scalar divide
+  "steigung":(giveHeight(xendline,yendline,minRemoved=True)-giveHeight(xarc,yarc,minRemoved=True))/length,"length":length})
+C:\Users\jukka\Documents\GitHub\osm2xodr\OSMParser\osmParsing.py:781: RuntimeWarning: invalid value encountered in scalar divide
+  self.laneOffsetB = -(self.laneOffsetA-laneOffsetEnd)/length
+Converting data\osm\isokaari.osm -> data\xodr\isokaari.xodr
+minlon = 24.8378023,minlat= 60.1412749,maxlon = 24.9142349,maxlat = 60.1711644
+Converting data\osm\keskusta.osm -> data\xodr\keskusta.xodr
+minlon = 24.810974,minlat= 59.8972435,maxlon = 25.676443,maxlat = 60.3892991
+Converting data\osm\laru-liikenneympyra.osm -> data\xodr\laru-liikenneympyra.xodr
+minlon = 24.8726771,minlat= 60.1536043,maxlon = 24.8972196,maxlat = 60.160993
+Converting data\osm\siltasaari-hakaniemi.osm -> data\xodr\siltasaari-hakaniemi.xodr
+minlon = 24.9302852,minlat= 60.1633854,maxlon = 24.9757174,maxlat = 60.1893188
+Converting data\osm\sompasaari-nihti.osm -> data\xodr\sompasaari-nihti.xodr
+minlon = 24.8774179,minlat= 60.1405862,maxlon = 25.0676423,maxlat = 60.2375052

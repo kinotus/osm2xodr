@@ -3,10 +3,10 @@ __all__ = ['rNode', 'OSMPreWay', 'OSMWayEndcap', 'OSMWay', 'parseAll', 'createOS
 
 #Cell
 import uuid
-from .utils import createVirtualLastPointForJunctionRoads, convertLongitudeLatitude, giveHeading, convertTopoMap, giveMaxMinLongLat, getDeltaHdg, giveHeight, distance,getXYPositionFromLineLength, setHeights
+from .utils import createVirtualLastPointForJunctionRoads, convertLongitudeLatitude, giveHeading, convertTopoMap, giveMaxMinLongLat, getDeltaHdg, giveHeight, distance,getXYPositionFromLineLength, resetConversionState, setHeights
 from .arcCurves import getArcCurvatureAndLength2Point, getArcCurvatureAndLength, endTurn2LaneStreet
 import numpy as np
-from osmread import parse_file, Way, Node
+from .osm_read import Node, Way, parse_file
 import copy
 import pathlib
 
@@ -520,6 +520,12 @@ class OSMWay:
 #Cell
 def parseAll(pfad, bildpfad = None, minimumHeight = 0.0, maximumHeight = 100.0, curveRadius=8):
     global topoParameter
+    rNode.reset()
+    OSMPreWay.reset()
+    OSMWay.reset()
+    OSMWayEndcap.reset()
+    JunctionRoad.reset()
+    resetConversionState()
     setHeights(minimumHeight, maximumHeight)
     if bildpfad is not None:
         topoParameter = convertTopoMap(bildpfad, pfad)
