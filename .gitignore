@@ -1,0 +1,6 @@
+*.[pP][nN][gG]
+*.[tT][iI][fF]
+*.[tT][iI][fF][fF]
+.venv
+__pycache__
+
