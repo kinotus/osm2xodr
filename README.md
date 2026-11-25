@@ -25,9 +25,9 @@ Choose another batch directory and output directory:
 python main.py --batch path/to/osm-files --output-dir path/to/xodr-files
 ```
 
-## Prepare Helsinki elevation data
+## Prepare Helsinki data
 
-Download the Helsinki 1 m elevation model for every `.osm` file in
+Download the Helsinki 1 m elevation model and ortophoto for every `.osm` file in
 `data/osm`:
 
 ```shell
