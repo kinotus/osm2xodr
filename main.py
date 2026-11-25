@@ -109,8 +109,11 @@ def resolve_topography(source, args):
     if args.topography is not None:
         topography = args.topography
     else:
-        adjacent = source.with_suffix(".png")
+        adjacent = source.with_name(f"{source.stem}_elevation.png")
         topography = adjacent if adjacent.is_file() else None
+        if topography is None:
+            legacy = source.with_suffix(".png")
+            topography = legacy if legacy.is_file() else None
         if topography is None and args.batch is None and not args.inputs:
             fallback = Path("topomap.png")
             topography = fallback if fallback.is_file() else None

@@ -19,6 +19,16 @@ class TopographyResolutionTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as directory:
             source = Path(directory) / "map.osm"
             source.touch()
+            image = source.with_name("map_elevation.png")
+            image.touch()
+
+            args = self.parser.parse_args(["--batch", directory])
+            self.assertEqual(resolve_topography(source, args), image)
+
+    def test_supports_legacy_same_name_png(self):
+        with tempfile.TemporaryDirectory() as directory:
+            source = Path(directory) / "map.osm"
+            source.touch()
             image = source.with_suffix(".png")
             image.touch()
 

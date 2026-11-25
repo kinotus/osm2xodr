@@ -37,19 +37,28 @@ python prepare_data.py
 The script prefers the WGS84 `<bounds>` element in each OSM file and falls
 back to the coordinates of its nodes. It requests the Helsinki
 `avoindata:Korkeusmalli_2021_1m` coverage through WCS, transforms the extent to
-the native EPSG:3879 GK25 coordinate system, and saves a GeoTIFF beside each
-input with the same base name. It also converts each floating-point DEM to a
-16-bit grayscale PNG. For example, `hietsu.osm` produces `hietsu.tif` and
-`hietsu.png`.
+the native EPSG:3879 GK25 coordinate system, and downloads the
+`avoindata:Ortoilmakuva` aerial image through WMS. For example, `hietsu.osm`
+produces `hietsu_elevation.tif`, `hietsu_elevation.png`,
+`hietsu_elevation.txt`, and `hietsu_orto.png`.
+
+The floating-point DEM is converted to a 16-bit elevation PNG. Its text sidecar
+records the minimum and maximum valid N2000 elevation values, the units, the
+vertical reference, and the WGS84 OSM bounding-box coordinates (`min_lon`,
+`min_lat`, `max_lon`, `max_lat`).
+These values can be used e.g. in Metromake to set the correct elevation and
+coordinate ranges.
 
 The PNG uses the full 16-bit range for valid elevations. Its
-`elevation_minimum` and `elevation_maximum` metadata records the N2000 values,
-which can be supplied as `--minimum-height` and `--maximum-height` to a
-conversion. NoData pixels are excluded from that range. The GeoTIFF remains
-available as the lossless, georeferenced source.
+`elevation_minimum` and `elevation_maximum` metadata records the same N2000
+values written to the text sidecar. Elevation limits are rounded to the
+nearest centimetre. These values can be supplied as `--minimum-height` and
+`--maximum-height` to a conversion. NoData pixels are excluded from that range.
+The GeoTIFF remains available as the lossless, georeferenced source.
 
-Use `--input-dir`, `--output-dir`, `--resolution`, or `--coverage` to override
-the defaults. Existing output files are replaced after a successful download.
+Use `--input-dir`, `--output-dir`, `--resolution`, `--coverage`, `--wms-url`, or
+`--wms-layer` to override the defaults. Existing output files are replaced
+after a successful download.
 
 The source dataset is provided by the City of Helsinki through its
 [open geospatial data services](https://www.hel.fi/fi/paatoksenteko-ja-hallinto/tietoa-helsingista/kartat-ja-paikkatieto/paikkatiedot-tehokayttoon/avoimet-paikkatiedot)

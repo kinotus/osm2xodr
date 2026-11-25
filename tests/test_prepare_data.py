@@ -7,10 +7,13 @@ import numpy as np
 from PIL import Image
 
 from prepare_data import (
+    analyze_geotiff,
     build_coverage_url,
+    build_map_url,
     convert_geotiff_to_png,
     project_bbox,
     read_osm_bbox,
+    write_elevation_sidecar,
 )
 
 
@@ -64,6 +67,25 @@ class WcsRequestTests(unittest.TestCase):
         self.assertGreater(width, 0)
         self.assertGreater(height, 0)
 
+    def test_builds_orthophoto_map_request_in_wms_axis_order(self):
+        url, width, height = build_map_url(
+            "https://example.test/wms",
+            "avoindata:Ortoilmakuva",
+            (25490000.0, 6670000.0, 25490500.0, 6670200.0),
+            1.0,
+        )
+        query = parse_qs(urlparse(url).query)
+
+        self.assertEqual(query["service"], ["WMS"])
+        self.assertEqual(query["layers"], ["avoindata:Ortoilmakuva"])
+        self.assertEqual(query["crs"], ["EPSG:3879"])
+        self.assertEqual(query["format"], ["image/png"])
+        self.assertEqual(
+            query["bbox"],
+            ["6670000.000000,25490000.000000,6670200.000000,25490500.000000"],
+        )
+        self.assertEqual((width, height), (500, 200))
+
 
 class GeotiffConversionTests(unittest.TestCase):
     def test_creates_16_bit_png_and_excludes_nodata_from_scale(self):
@@ -85,14 +107,58 @@ class GeotiffConversionTests(unittest.TestCase):
                 pixels = np.asarray(image)
                 self.assertEqual(pixels.dtype, np.uint16)
                 self.assertEqual(image.mode, "I;16")
-                self.assertEqual(image.text["elevation_minimum"], "1.5")
-                self.assertEqual(image.text["elevation_maximum"], "5.5")
+                self.assertEqual(image.text["elevation_minimum"], "1.50")
+                self.assertEqual(image.text["elevation_maximum"], "5.50")
                 self.assertEqual(image.text["vertical_reference"], "N2000")
 
             self.assertEqual((minimum, maximum), (1.5, 5.5))
             self.assertEqual(pixels[0, 0], 0)
             self.assertEqual(pixels[0, 1], 0)
             self.assertEqual(pixels[1, 2], 65535)
+
+    def test_writes_analyzed_elevation_range_to_sidecar(self):
+        elevations = np.array(
+            [[-32767.0, -2.125], [4.5, 12.876]], dtype=np.float32
+        )
+        with tempfile.TemporaryDirectory() as directory:
+            source = Path(directory) / "elevation.tif"
+            sidecar = Path(directory) / "elevation.txt"
+            Image.fromarray(elevations).save(source)
+
+            _, _, minimum, maximum = analyze_geotiff(source)
+            write_elevation_sidecar(
+                sidecar,
+                minimum,
+                maximum,
+                (24.882188, 60.156222, 24.886565, 60.157985),
+            )
+
+            self.assertEqual(
+                sidecar.read_text(encoding="utf-8"),
+                (
+                    "elevation_minimum=-2.13\n"
+                    "elevation_maximum=12.88\n"
+                    "units=metres\n"
+                    "vertical_reference=N2000\n"
+                    "bounding_box_crs=EPSG:4326\n"
+                    "min_lon=24.882188\n"
+                    "min_lat=60.156222\n"
+                    "max_lon=24.886565\n"
+                    "max_lat=60.157985\n"
+                ),
+            )
+
+    def test_rounds_analyzed_range_to_centimetres(self):
+        elevations = np.array(
+            [[1.234, 2.345], [3.456, 4.565]], dtype=np.float64
+        )
+        with tempfile.TemporaryDirectory() as directory:
+            source = Path(directory) / "elevation.tif"
+            Image.fromarray(elevations).save(source)
+
+            _, _, minimum, maximum = analyze_geotiff(source)
+
+            self.assertEqual((minimum, maximum), (1.23, 4.57))
 
     def test_rejects_raster_without_valid_elevations(self):
         elevations = np.full((2, 2), -32767.0, dtype=np.float32)
