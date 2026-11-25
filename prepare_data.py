@@ -2,6 +2,7 @@
 import argparse
 import math
 import sys
+from decimal import Decimal, ROUND_HALF_UP
 from pathlib import Path
 from urllib.error import URLError
 from urllib.parse import urlencode
@@ -15,8 +16,11 @@ from pyproj import Transformer
 
 DEFAULT_WCS_URL = "https://kartta.hel.fi/ws/geoserver/avoindata/wcs"
 DEFAULT_COVERAGE = "avoindata:Korkeusmalli_2021_1m"
+DEFAULT_WMS_URL = "https://kartta.hel.fi/ws/geoserver/avoindata/wms"
+DEFAULT_WMS_LAYER = "avoindata:Ortoilmakuva"
 DEFAULT_NODATA = -32767.0
 MAX_UINT16 = 65535
+CENTIMETRE = Decimal("0.01")
 
 
 def _local_name(tag):
@@ -115,6 +119,33 @@ def build_coverage_url(endpoint, coverage, bbox, resolution):
     return f"{endpoint}?{urlencode(parameters)}", width, height
 
 
+def build_map_url(endpoint, layer, bbox, resolution):
+    min_easting, min_northing, max_easting, max_northing = bbox
+    width = max(1, math.ceil((max_easting - min_easting) / resolution))
+    height = max(1, math.ceil((max_northing - min_northing) / resolution))
+    parameters = {
+        "service": "WMS",
+        "version": "1.3.0",
+        "request": "GetMap",
+        "layers": layer,
+        "styles": "",
+        "crs": "EPSG:3879",
+        "bbox": ",".join(
+            (
+                f"{min_northing:.6f}",
+                f"{min_easting:.6f}",
+                f"{max_northing:.6f}",
+                f"{max_easting:.6f}",
+            )
+        ),
+        "width": str(width),
+        "height": str(height),
+        "format": "image/png",
+        "transparent": "false",
+    }
+    return f"{endpoint}?{urlencode(parameters)}", width, height
+
+
 def download_geotiff(url, destination, timeout):
     destination.parent.mkdir(parents=True, exist_ok=True)
     temporary = destination.with_name(f".{destination.name}.part")
@@ -140,6 +171,29 @@ def download_geotiff(url, destination, timeout):
             temporary.unlink()
 
 
+def download_png(url, destination, timeout):
+    destination.parent.mkdir(parents=True, exist_ok=True)
+    temporary = destination.with_name(f".{destination.name}.part")
+    request = Request(url, headers={"User-Agent": "osm2xodr/prepare-data"})
+
+    try:
+        with urlopen(request, timeout=timeout) as response, temporary.open("wb") as output:
+            first_chunk = response.read(64 * 1024)
+            if not first_chunk.startswith(b"\x89PNG\r\n\x1a\n"):
+                content_type = response.headers.get("Content-Type", "unknown")
+                raise ValueError(f"WMS server returned {content_type}, not a PNG")
+            output.write(first_chunk)
+            while True:
+                chunk = response.read(1024 * 1024)
+                if not chunk:
+                    break
+                output.write(chunk)
+        temporary.replace(destination)
+    finally:
+        if temporary.exists():
+            temporary.unlink()
+
+
 def _read_nodata(image):
     value = image.tag_v2.get(42113)  # GDAL_NODATA
     if value is None:
@@ -151,32 +205,74 @@ def _read_nodata(image):
     return float(str(value).split()[0])
 
 
-def convert_geotiff_to_png(source, destination):
+def analyze_geotiff(source):
+    with Image.open(source) as image:
+        elevations = np.asarray(image, dtype=np.float64)
+        if elevations.ndim != 2:
+            raise ValueError(f"{source}: expected a single-band elevation raster")
+        nodata = _read_nodata(image)
+
+    valid = np.isfinite(elevations) & (elevations != nodata)
+    if not np.any(valid):
+        raise ValueError(f"{source}: elevation raster has no valid pixels")
+
+    minimum = _round_to_centimetres(float(np.min(elevations[valid])))
+    maximum = _round_to_centimetres(float(np.max(elevations[valid])))
+    return elevations, valid, minimum, maximum
+
+
+def _round_to_centimetres(value):
+    return float(
+        Decimal(str(value)).quantize(CENTIMETRE, rounding=ROUND_HALF_UP)
+    )
+
+
+def write_elevation_sidecar(destination, minimum, maximum, wgs84_bbox):
+    destination.parent.mkdir(parents=True, exist_ok=True)
+    temporary = destination.with_name(f".{destination.name}.part")
+    min_lon, min_lat, max_lon, max_lat = wgs84_bbox
+    contents = (
+        f"elevation_minimum={minimum:.2f}\n"
+        f"elevation_maximum={maximum:.2f}\n"
+        "units=metres\n"
+        "vertical_reference=N2000\n"
+        "bounding_box_crs=EPSG:4326\n"
+        f"min_lon={min_lon!r}\n"
+        f"min_lat={min_lat!r}\n"
+        f"max_lon={max_lon!r}\n"
+        f"max_lat={max_lat!r}\n"
+    )
+
+    try:
+        temporary.write_text(contents, encoding="utf-8")
+        temporary.replace(destination)
+    finally:
+        if temporary.exists():
+            temporary.unlink()
+
+
+def convert_geotiff_to_png(source, destination, analysis=None):
     destination.parent.mkdir(parents=True, exist_ok=True)
     temporary = destination.with_name(f".{destination.name}.part")
 
     try:
-        with Image.open(source) as image:
-            elevations = np.asarray(image, dtype=np.float64)
-            if elevations.ndim != 2:
-                raise ValueError(f"{source}: expected a single-band elevation raster")
-            nodata = _read_nodata(image)
-
-        valid = np.isfinite(elevations) & (elevations != nodata)
-        if not np.any(valid):
-            raise ValueError(f"{source}: elevation raster has no valid pixels")
-
-        minimum = float(np.min(elevations[valid]))
-        maximum = float(np.max(elevations[valid]))
+        elevations, valid, minimum, maximum = (
+            analyze_geotiff(source) if analysis is None else analysis
+        )
         encoded = np.zeros(elevations.shape, dtype=np.uint16)
         if maximum > minimum:
+            normalized = (
+                (elevations[valid] - minimum)
+                * MAX_UINT16
+                / (maximum - minimum)
+            )
             encoded[valid] = np.rint(
-                (elevations[valid] - minimum) * MAX_UINT16 / (maximum - minimum)
+                np.clip(normalized, 0, MAX_UINT16)
             ).astype(np.uint16)
 
         metadata = PngImagePlugin.PngInfo()
-        metadata.add_text("elevation_minimum", repr(minimum))
-        metadata.add_text("elevation_maximum", repr(maximum))
+        metadata.add_text("elevation_minimum", f"{minimum:.2f}")
+        metadata.add_text("elevation_maximum", f"{maximum:.2f}")
         metadata.add_text("vertical_reference", "N2000")
         Image.fromarray(encoded).save(temporary, format="PNG", pnginfo=metadata)
         temporary.replace(destination)
@@ -186,29 +282,53 @@ def convert_geotiff_to_png(source, destination):
             temporary.unlink()
 
 
-def prepare_file(source, output_dir, endpoint, coverage, resolution, timeout):
+def prepare_file(
+    source,
+    output_dir,
+    wcs_endpoint,
+    coverage,
+    wms_endpoint,
+    wms_layer,
+    resolution,
+    timeout,
+):
     wgs84_bbox = read_osm_bbox(source)
     projected_bbox = project_bbox(wgs84_bbox)
-    url, width, height = build_coverage_url(
-        endpoint, coverage, projected_bbox, resolution
+    coverage_url, width, height = build_coverage_url(
+        wcs_endpoint, coverage, projected_bbox, resolution
+    )
+    map_url, _, _ = build_map_url(
+        wms_endpoint, wms_layer, projected_bbox, resolution
     )
     output_directory = output_dir or source.parent
-    geotiff_destination = output_directory / f"{source.stem}.tif"
-    png_destination = output_directory / f"{source.stem}.png"
+    geotiff_destination = output_directory / f"{source.stem}_elevation.tif"
+    elevation_png_destination = (
+        output_directory / f"{source.stem}_elevation.png"
+    )
+    sidecar_destination = output_directory / f"{source.stem}_info.txt"
+    ortho_destination = output_directory / f"{source.stem}_orto.png"
     print(
         f"{source}: WGS84 bbox "
         f"({wgs84_bbox[0]:.7f}, {wgs84_bbox[1]:.7f}, "
         f"{wgs84_bbox[2]:.7f}, {wgs84_bbox[3]:.7f})"
     )
     print(f"  Downloading {width} x {height} GeoTIFF -> {geotiff_destination}")
-    download_geotiff(url, geotiff_destination, timeout)
+    download_geotiff(coverage_url, geotiff_destination, timeout)
+    analysis = analyze_geotiff(geotiff_destination)
+    _, _, minimum, maximum = analysis
     minimum, maximum = convert_geotiff_to_png(
-        geotiff_destination, png_destination
+        geotiff_destination, elevation_png_destination, analysis
+    )
+    write_elevation_sidecar(
+        sidecar_destination, minimum, maximum, wgs84_bbox
     )
     print(
-        f"  Converted 16-bit PNG -> {png_destination} "
-        f"(N2000 range {minimum:.3f} to {maximum:.3f} m)"
+        f"  Converted 16-bit elevation PNG -> {elevation_png_destination} "
+        f"(N2000 range {minimum:.2f} to {maximum:.2f} m)"
     )
+    print(f"  Wrote elevation range -> {sidecar_destination}")
+    print(f"  Downloading {width} x {height} orthophoto -> {ortho_destination}")
+    download_png(map_url, ortho_destination, timeout)
 
 
 def create_parser():
@@ -246,6 +366,16 @@ def create_parser():
         help="WCS 1.0.0 coverage name",
     )
     parser.add_argument(
+        "--wms-url",
+        default=DEFAULT_WMS_URL,
+        help="Helsinki WMS endpoint",
+    )
+    parser.add_argument(
+        "--wms-layer",
+        default=DEFAULT_WMS_LAYER,
+        help="WMS orthophoto layer (default: avoindata:Ortoilmakuva)",
+    )
+    parser.add_argument(
         "--timeout",
         type=float,
         default=120.0,
@@ -276,6 +406,8 @@ def main(argv=None):
                 args.output_dir,
                 args.wcs_url,
                 args.coverage,
+                args.wms_url,
+                args.wms_layer,
                 args.resolution,
                 args.timeout,
             )
