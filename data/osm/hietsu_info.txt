@@ -1,0 +1,9 @@
+elevation_minimum=-0.00
+elevation_maximum=21.86
+units=metres
+vertical_reference=N2000
+bounding_box_crs=EPSG:4326
+min_lon=24.89622
+min_lat=60.16835
+max_lon=24.92266
+max_lat=60.1802

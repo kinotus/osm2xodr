@@ -1,0 +1,1513 @@
+{
+ "areas": [],
+ "attribution": "Map data © OpenStreetMap contributors, licensed under the ODbL (openstreetmap.org/copyright)",
+ "barriers": [],
+ "decals": [],
+ "format": "metromake",
+ "geoOrigin": {
+  "crs": 0,
+  "height0": 0.0,
+  "lat": 60.1571035,
+  "lon": 24.884376500000002,
+  "north": 0.0,
+  "scale": 1.0,
+  "utmSouth": false,
+  "utmZone": 0,
+  "vdatum": 0
+ },
+ "library": [],
+ "nextId": 59,
+ "nodes": [
+  {
+   "bindNode": 0,
+   "bindWorld": "",
+   "control": "Roundabout",
+   "cornerRadius": 4.0,
+   "id": 1,
+   "islandRadius": 11.689519882202148,
+   "pos": [
+    63.6148681640625,
+    0.0,
+    -0.043671056628227234
+   ],
+   "roundaboutRadius": 20.43951988220215
+  },
+  {
+   "bindNode": 0,
+   "bindWorld": "",
+   "control": "Priority",
+   "cornerRadius": 4.0,
+   "id": 2,
+   "islandRadius": 7.0,
+   "pos": [
+    80.88578033447266,
+    0.0,
+    -57.958953857421875
+   ],
+   "roundaboutRadius": 16.0
+  },
+  {
+   "bindNode": 0,
+   "bindWorld": "",
+   "control": "Priority",
+   "cornerRadius": 4.0,
+   "id": 3,
+   "islandRadius": 7.0,
+   "pos": [
+    98.455078125,
+    0.0,
+    -123.93932342529297
+   ],
+   "roundaboutRadius": 16.0
+  },
+  {
+   "bindNode": 0,
+   "bindWorld": "",
+   "control": "Priority",
+   "cornerRadius": 4.0,
+   "id": 5,
+   "islandRadius": 7.0,
+   "pos": [
+    64.76612854003906,
+    0.0,
+    53.74599838256836
+   ],
+   "roundaboutRadius": 16.0
+  },
+  {
+   "bindNode": 0,
+   "bindWorld": "",
+   "control": "Priority",
+   "cornerRadius": 4.0,
+   "id": 6,
+   "islandRadius": 7.0,
+   "pos": [
+    58.69100570678711,
+    0.0,
+    86.06757354736328
+   ],
+   "roundaboutRadius": 16.0
+  },
+  {
+   "bindNode": 0,
+   "bindWorld": "",
+   "control": "Priority",
+   "cornerRadius": 4.0,
+   "id": 8,
+   "islandRadius": 7.0,
+   "pos": [
+    61.0781135559082,
+    0.0,
+    28.142908096313477
+   ],
+   "roundaboutRadius": 16.0
+  },
+  {
+   "bindNode": 0,
+   "bindWorld": "",
+   "control": "Priority",
+   "cornerRadius": 4.0,
+   "id": 11,
+   "islandRadius": 7.0,
+   "pos": [
+    104.42333984375,
+    0.0,
+    15.941993713378906
+   ],
+   "roundaboutRadius": 16.0
+  },
+  {
+   "bindNode": 0,
+   "bindWorld": "",
+   "control": "Priority",
+   "cornerRadius": 4.0,
+   "id": 12,
+   "islandRadius": 7.0,
+   "pos": [
+    89.42508697509766,
+    0.0,
+    92.72956848144531
+   ],
+   "roundaboutRadius": 16.0
+  },
+  {
+   "bindNode": 0,
+   "bindWorld": "",
+   "control": "Priority",
+   "cornerRadius": 4.0,
+   "id": 14,
+   "islandRadius": 7.0,
+   "pos": [
+    6.18104887008667,
+    0.0,
+    -12.979846954345703
+   ],
+   "roundaboutRadius": 16.0
+  },
+  {
+   "bindNode": 0,
+   "bindWorld": "",
+   "control": "Priority",
+   "cornerRadius": 4.0,
+   "id": 17,
+   "islandRadius": 7.0,
+   "pos": [
+    67.5080795288086,
+    0.0,
+    -29.68156623840332
+   ],
+   "roundaboutRadius": 16.0
+  },
+  {
+   "bindNode": 0,
+   "bindWorld": "",
+   "control": "Priority",
+   "cornerRadius": 4.0,
+   "id": 20,
+   "islandRadius": 7.0,
+   "pos": [
+    31.149988174438477,
+    0.0,
+    32.744720458984375
+   ],
+   "roundaboutRadius": 16.0
+  },
+  {
+   "bindNode": 0,
+   "bindWorld": "",
+   "control": "Priority",
+   "cornerRadius": 4.0,
+   "id": 22,
+   "islandRadius": 7.0,
+   "pos": [
+    45.21150207519531,
+    0.0,
+    22.082164764404297
+   ],
+   "roundaboutRadius": 16.0
+  },
+  {
+   "bindNode": 0,
+   "bindWorld": "",
+   "control": "Priority",
+   "cornerRadius": 4.0,
+   "id": 24,
+   "islandRadius": 7.0,
+   "pos": [
+    -99.44598388671875,
+    0.0,
+    -35.00792694091797
+   ],
+   "roundaboutRadius": 16.0
+  },
+  {
+   "bindNode": 0,
+   "bindWorld": "",
+   "control": "Priority",
+   "cornerRadius": 4.0,
+   "id": 25,
+   "islandRadius": 7.0,
+   "pos": [
+    -50.15906524658203,
+    0.0,
+    -25.77062225341797
+   ],
+   "roundaboutRadius": 16.0
+  },
+  {
+   "bindNode": 0,
+   "bindWorld": "",
+   "control": "Priority",
+   "cornerRadius": 4.0,
+   "id": 28,
+   "islandRadius": 7.0,
+   "pos": [
+    -2.0492897033691406,
+    0.0,
+    71.08273315429688
+   ],
+   "roundaboutRadius": 16.0
+  },
+  {
+   "bindNode": 0,
+   "bindWorld": "",
+   "control": "Priority",
+   "cornerRadius": 4.0,
+   "id": 30,
+   "islandRadius": 7.0,
+   "pos": [
+    112.95222473144531,
+    0.0,
+    -28.36798667907715
+   ],
+   "roundaboutRadius": 16.0
+  },
+  {
+   "bindNode": 0,
+   "bindWorld": "",
+   "control": "Priority",
+   "cornerRadius": 4.0,
+   "id": 31,
+   "islandRadius": 7.0,
+   "pos": [
+    109.91496276855469,
+    0.0,
+    -12.134735107421875
+   ],
+   "roundaboutRadius": 16.0
+  },
+  {
+   "bindNode": 0,
+   "bindWorld": "",
+   "control": "Priority",
+   "cornerRadius": 4.0,
+   "id": 33,
+   "islandRadius": 7.0,
+   "pos": [
+    108.4657211303711,
+    0.0,
+    -4.458201885223389
+   ],
+   "roundaboutRadius": 16.0
+  },
+  {
+   "bindNode": 0,
+   "bindWorld": "",
+   "control": "Priority",
+   "cornerRadius": 4.0,
+   "id": 39,
+   "islandRadius": 7.0,
+   "pos": [
+    128.552490234375,
+    0.0,
+    -12.792689323425293
+   ],
+   "roundaboutRadius": 16.0
+  }
+ ],
+ "piers": [],
+ "props": [],
+ "roads": [
+  {
+   "a": 2,
+   "arrows": true,
+   "b": 3,
+   "crosswalkA": true,
+   "crosswalkB": true,
+   "ctrl": [],
+   "id": 4,
+   "lightModel": 0,
+   "lightSpacing": 24.0,
+   "lightsLeft": false,
+   "lightsRight": true,
+   "profile": {
+    "lanes": [
+     {
+      "dir": 0,
+      "height": 0.15000000596046448,
+      "type": "Sidewalk",
+      "width": 2.0
+     },
+     {
+      "dir": -1,
+      "height": 0.0,
+      "type": "Driving",
+      "width": 3.25
+     },
+     {
+      "dir": 1,
+      "height": 0.0,
+      "type": "Driving",
+      "width": 3.25
+     },
+     {
+      "dir": 0,
+      "height": 0.15000000596046448,
+      "type": "Sidewalk",
+      "width": 2.0
+     }
+    ],
+    "marks": [
+     0,
+     1,
+     4,
+     0,
+     0
+    ],
+    "name": "OSM secondary"
+   },
+   "stopLineA": true,
+   "stopLineB": true,
+   "treeModel": 0,
+   "treeSpacing": 12.0,
+   "treesLeft": false,
+   "treesRight": false
+  },
+  {
+   "a": 5,
+   "arrows": true,
+   "b": 6,
+   "crosswalkA": true,
+   "crosswalkB": true,
+   "ctrl": [],
+   "id": 7,
+   "lightModel": 0,
+   "lightSpacing": 24.0,
+   "lightsLeft": false,
+   "lightsRight": true,
+   "profile": {
+    "lanes": [
+     {
+      "dir": 0,
+      "height": 0.15000000596046448,
+      "type": "Sidewalk",
+      "width": 2.0
+     },
+     {
+      "dir": -1,
+      "height": 0.0,
+      "type": "Driving",
+      "width": 3.25
+     },
+     {
+      "dir": 1,
+      "height": 0.0,
+      "type": "Driving",
+      "width": 3.25
+     },
+     {
+      "dir": 0,
+      "height": 0.15000000596046448,
+      "type": "Sidewalk",
+      "width": 2.0
+     }
+    ],
+    "marks": [
+     0,
+     1,
+     2,
+     0,
+     0
+    ],
+    "name": "OSM tertiary"
+   },
+   "stopLineA": true,
+   "stopLineB": true,
+   "treeModel": 0,
+   "treeSpacing": 12.0,
+   "treesLeft": false,
+   "treesRight": false
+  },
+  {
+   "a": 8,
+   "arrows": true,
+   "b": 5,
+   "crosswalkA": true,
+   "crosswalkB": true,
+   "ctrl": [
+    [
+     62.472145080566406,
+     0.0,
+     33.34596252441406
+    ],
+    [
+     62.98880386352539,
+     0.0,
+     43.54042053222656
+    ]
+   ],
+   "id": 9,
+   "lightModel": 0,
+   "lightSpacing": 24.0,
+   "lightsLeft": false,
+   "lightsRight": true,
+   "profile": {
+    "lanes": [
+     {
+      "dir": 1,
+      "height": 0.0,
+      "type": "Driving",
+      "width": 3.25
+     },
+     {
+      "dir": 0,
+      "height": 0.15000000596046448,
+      "type": "Sidewalk",
+      "width": 2.0
+     }
+    ],
+    "marks": [
+     1,
+     0,
+     0
+    ],
+    "name": "OSM tertiary"
+   },
+   "stopLineA": true,
+   "stopLineB": true,
+   "treeModel": 0,
+   "treeSpacing": 12.0,
+   "treesLeft": false,
+   "treesRight": false
+  },
+  {
+   "a": 1,
+   "arrows": true,
+   "b": 2,
+   "crosswalkA": true,
+   "crosswalkB": true,
+   "ctrl": [
+    [
+     79.336669921875,
+     0.0,
+     -44.11003875732422
+    ]
+   ],
+   "id": 10,
+   "lightModel": 0,
+   "lightSpacing": 24.0,
+   "lightsLeft": false,
+   "lightsRight": true,
+   "profile": {
+    "lanes": [
+     {
+      "dir": 0,
+      "height": 0.15000000596046448,
+      "type": "Sidewalk",
+      "width": 2.0
+     },
+     {
+      "dir": 1,
+      "height": 0.0,
+      "type": "Driving",
+      "width": 3.25
+     },
+     {
+      "dir": 0,
+      "height": 0.15000000596046448,
+      "type": "Sidewalk",
+      "width": 2.0
+     }
+    ],
+    "marks": [
+     0,
+     1,
+     0,
+     0
+    ],
+    "name": "OSM secondary"
+   },
+   "stopLineA": true,
+   "stopLineB": true,
+   "treeModel": 0,
+   "treeSpacing": 12.0,
+   "treesLeft": false,
+   "treesRight": false
+  },
+  {
+   "a": 11,
+   "arrows": true,
+   "b": 12,
+   "crosswalkA": true,
+   "crosswalkB": true,
+   "ctrl": [],
+   "id": 13,
+   "lightModel": 0,
+   "lightSpacing": 24.0,
+   "lightsLeft": false,
+   "lightsRight": false,
+   "profile": {
+    "lanes": [
+     {
+      "dir": -1,
+      "height": 0.0,
+      "type": "Driving",
+      "width": 2.75
+     },
+     {
+      "dir": 1,
+      "height": 0.0,
+      "type": "Driving",
+      "width": 2.75
+     }
+    ],
+    "marks": [
+     0,
+     2,
+     0
+    ],
+    "name": "OSM service"
+   },
+   "stopLineA": true,
+   "stopLineB": true,
+   "treeModel": 0,
+   "treeSpacing": 12.0,
+   "treesLeft": false,
+   "treesRight": false
+  },
+  {
+   "a": 1,
+   "arrows": true,
+   "b": 14,
+   "crosswalkA": true,
+   "crosswalkB": true,
+   "ctrl": [
+    [
+     35.614627838134766,
+     0.0,
+     -11.520479202270508
+    ],
+    [
+     15.24436092376709,
+     0.0,
+     -14.11630630493164
+    ]
+   ],
+   "id": 15,
+   "lightModel": 0,
+   "lightSpacing": 24.0,
+   "lightsLeft": false,
+   "lightsRight": true,
+   "profile": {
+    "lanes": [
+     {
+      "dir": 0,
+      "height": 0.15000000596046448,
+      "type": "Sidewalk",
+      "width": 2.0
+     },
+     {
+      "dir": 1,
+      "height": 0.0,
+      "type": "Driving",
+      "width": 3.25
+     },
+     {
+      "dir": 0,
+      "height": 0.15000000596046448,
+      "type": "Sidewalk",
+      "width": 2.0
+     }
+    ],
+    "marks": [
+     0,
+     1,
+     0,
+     0
+    ],
+    "name": "OSM tertiary"
+   },
+   "stopLineA": true,
+   "stopLineB": true,
+   "treeModel": 0,
+   "treeSpacing": 12.0,
+   "treesLeft": false,
+   "treesRight": false
+  },
+  {
+   "a": 5,
+   "arrows": true,
+   "b": 1,
+   "crosswalkA": true,
+   "crosswalkB": true,
+   "ctrl": [
+    [
+     68.25361633300781,
+     0.0,
+     44.2199592590332
+    ],
+    [
+     69.24205017089844,
+     0.0,
+     38.48207092285156
+    ]
+   ],
+   "id": 16,
+   "lightModel": 0,
+   "lightSpacing": 24.0,
+   "lightsLeft": false,
+   "lightsRight": true,
+   "profile": {
+    "lanes": [
+     {
+      "dir": 0,
+      "height": 0.15000000596046448,
+      "type": "Sidewalk",
+      "width": 2.0
+     },
+     {
+      "dir": 1,
+      "height": 0.0,
+      "type": "Driving",
+      "width": 3.25
+     },
+     {
+      "dir": 0,
+      "height": 0.15000000596046448,
+      "type": "Sidewalk",
+      "width": 2.0
+     }
+    ],
+    "marks": [
+     0,
+     1,
+     0,
+     0
+    ],
+    "name": "OSM tertiary"
+   },
+   "stopLineA": true,
+   "stopLineB": true,
+   "treeModel": 0,
+   "treeSpacing": 12.0,
+   "treesLeft": false,
+   "treesRight": false
+  },
+  {
+   "a": 2,
+   "arrows": true,
+   "b": 17,
+   "crosswalkA": true,
+   "crosswalkB": true,
+   "ctrl": [
+    [
+     73.87203979492188,
+     0.0,
+     -45.61402893066406
+    ]
+   ],
+   "id": 18,
+   "lightModel": 0,
+   "lightSpacing": 24.0,
+   "lightsLeft": false,
+   "lightsRight": true,
+   "profile": {
+    "lanes": [
+     {
+      "dir": 1,
+      "height": 0.0,
+      "type": "Driving",
+      "width": 3.25
+     },
+     {
+      "dir": 0,
+      "height": 0.15000000596046448,
+      "type": "Sidewalk",
+      "width": 2.0
+     }
+    ],
+    "marks": [
+     1,
+     0,
+     0
+    ],
+    "name": "OSM secondary"
+   },
+   "stopLineA": true,
+   "stopLineB": true,
+   "treeModel": 0,
+   "treeSpacing": 12.0,
+   "treesLeft": false,
+   "treesRight": false
+  },
+  {
+   "a": 14,
+   "arrows": true,
+   "b": 1,
+   "crosswalkA": true,
+   "crosswalkB": true,
+   "ctrl": [
+    [
+     14.611281394958496,
+     0.0,
+     -9.180621147155762
+    ],
+    [
+     33.637657165527344,
+     0.0,
+     -3.4651591777801514
+    ]
+   ],
+   "id": 19,
+   "lightModel": 0,
+   "lightSpacing": 24.0,
+   "lightsLeft": false,
+   "lightsRight": true,
+   "profile": {
+    "lanes": [
+     {
+      "dir": 0,
+      "height": 0.15000000596046448,
+      "type": "Sidewalk",
+      "width": 2.0
+     },
+     {
+      "dir": 1,
+      "height": 0.0,
+      "type": "Driving",
+      "width": 3.25
+     },
+     {
+      "dir": 0,
+      "height": 0.15000000596046448,
+      "type": "Sidewalk",
+      "width": 2.0
+     }
+    ],
+    "marks": [
+     0,
+     1,
+     0,
+     0
+    ],
+    "name": "OSM tertiary"
+   },
+   "stopLineA": true,
+   "stopLineB": true,
+   "treeModel": 0,
+   "treeSpacing": 12.0,
+   "treesLeft": false,
+   "treesRight": false
+  },
+  {
+   "a": 1,
+   "arrows": true,
+   "b": 20,
+   "crosswalkA": true,
+   "crosswalkB": true,
+   "ctrl": [
+    [
+     43.28984451293945,
+     0.0,
+     11.274937629699707
+    ],
+    [
+     34.9207763671875,
+     0.0,
+     23.630945205688477
+    ]
+   ],
+   "id": 21,
+   "lightModel": 0,
+   "lightSpacing": 24.0,
+   "lightsLeft": false,
+   "lightsRight": true,
+   "profile": {
+    "lanes": [
+     {
+      "dir": 0,
+      "height": 0.15000000596046448,
+      "type": "Sidewalk",
+      "width": 2.0
+     },
+     {
+      "dir": 1,
+      "height": 0.0,
+      "type": "Driving",
+      "width": 3.25
+     },
+     {
+      "dir": 0,
+      "height": 0.15000000596046448,
+      "type": "Sidewalk",
+      "width": 2.0
+     }
+    ],
+    "marks": [
+     0,
+     1,
+     0,
+     0
+    ],
+    "name": "OSM tertiary"
+   },
+   "stopLineA": true,
+   "stopLineB": true,
+   "treeModel": 0,
+   "treeSpacing": 12.0,
+   "treesLeft": false,
+   "treesRight": false
+  },
+  {
+   "a": 20,
+   "arrows": true,
+   "b": 22,
+   "crosswalkA": true,
+   "crosswalkB": true,
+   "ctrl": [],
+   "id": 23,
+   "lightModel": 0,
+   "lightSpacing": 24.0,
+   "lightsLeft": false,
+   "lightsRight": true,
+   "profile": {
+    "lanes": [
+     {
+      "dir": 1,
+      "height": 0.0,
+      "type": "Driving",
+      "width": 3.25
+     },
+     {
+      "dir": 0,
+      "height": 0.15000000596046448,
+      "type": "Sidewalk",
+      "width": 2.0
+     }
+    ],
+    "marks": [
+     1,
+     0,
+     0
+    ],
+    "name": "OSM tertiary"
+   },
+   "stopLineA": true,
+   "stopLineB": true,
+   "treeModel": 0,
+   "treeSpacing": 12.0,
+   "treesLeft": false,
+   "treesRight": false
+  },
+  {
+   "a": 24,
+   "arrows": true,
+   "b": 25,
+   "crosswalkA": true,
+   "crosswalkB": true,
+   "ctrl": [],
+   "id": 26,
+   "lightModel": 0,
+   "lightSpacing": 24.0,
+   "lightsLeft": false,
+   "lightsRight": true,
+   "profile": {
+    "lanes": [
+     {
+      "dir": 0,
+      "height": 0.15000000596046448,
+      "type": "Sidewalk",
+      "width": 2.0
+     },
+     {
+      "dir": -1,
+      "height": 0.0,
+      "type": "Driving",
+      "width": 3.25
+     },
+     {
+      "dir": 1,
+      "height": 0.0,
+      "type": "Driving",
+      "width": 3.25
+     },
+     {
+      "dir": 0,
+      "height": 0.15000000596046448,
+      "type": "Sidewalk",
+      "width": 2.0
+     }
+    ],
+    "marks": [
+     0,
+     1,
+     2,
+     0,
+     0
+    ],
+    "name": "OSM tertiary"
+   },
+   "stopLineA": true,
+   "stopLineB": true,
+   "treeModel": 0,
+   "treeSpacing": 12.0,
+   "treesLeft": false,
+   "treesRight": false
+  },
+  {
+   "a": 25,
+   "arrows": true,
+   "b": 14,
+   "crosswalkA": true,
+   "crosswalkB": true,
+   "ctrl": [],
+   "id": 27,
+   "lightModel": 0,
+   "lightSpacing": 24.0,
+   "lightsLeft": false,
+   "lightsRight": true,
+   "profile": {
+    "lanes": [
+     {
+      "dir": 0,
+      "height": 0.15000000596046448,
+      "type": "Sidewalk",
+      "width": 2.0
+     },
+     {
+      "dir": -1,
+      "height": 0.0,
+      "type": "Driving",
+      "width": 3.25
+     },
+     {
+      "dir": 1,
+      "height": 0.0,
+      "type": "Driving",
+      "width": 3.25
+     },
+     {
+      "dir": 0,
+      "height": 0.15000000596046448,
+      "type": "Sidewalk",
+      "width": 2.0
+     }
+    ],
+    "marks": [
+     0,
+     1,
+     2,
+     0,
+     0
+    ],
+    "name": "OSM tertiary"
+   },
+   "stopLineA": true,
+   "stopLineB": true,
+   "treeModel": 0,
+   "treeSpacing": 12.0,
+   "treesLeft": false,
+   "treesRight": false
+  },
+  {
+   "a": 28,
+   "arrows": true,
+   "b": 20,
+   "crosswalkA": true,
+   "crosswalkB": true,
+   "ctrl": [],
+   "id": 29,
+   "lightModel": 0,
+   "lightSpacing": 24.0,
+   "lightsLeft": false,
+   "lightsRight": true,
+   "profile": {
+    "lanes": [
+     {
+      "dir": 0,
+      "height": 0.15000000596046448,
+      "type": "Sidewalk",
+      "width": 2.0
+     },
+     {
+      "dir": -1,
+      "height": 0.0,
+      "type": "Driving",
+      "width": 3.25
+     },
+     {
+      "dir": 1,
+      "height": 0.0,
+      "type": "Driving",
+      "width": 3.25
+     },
+     {
+      "dir": 0,
+      "height": 0.15000000596046448,
+      "type": "Sidewalk",
+      "width": 2.0
+     }
+    ],
+    "marks": [
+     0,
+     1,
+     2,
+     0,
+     0
+    ],
+    "name": "OSM tertiary"
+   },
+   "stopLineA": true,
+   "stopLineB": true,
+   "treeModel": 0,
+   "treeSpacing": 12.0,
+   "treesLeft": false,
+   "treesRight": false
+  },
+  {
+   "a": 30,
+   "arrows": true,
+   "b": 31,
+   "crosswalkA": true,
+   "crosswalkB": true,
+   "ctrl": [],
+   "id": 32,
+   "lightModel": 0,
+   "lightSpacing": 24.0,
+   "lightsLeft": false,
+   "lightsRight": false,
+   "profile": {
+    "lanes": [
+     {
+      "dir": -1,
+      "height": 0.0,
+      "type": "Driving",
+      "width": 2.75
+     },
+     {
+      "dir": 1,
+      "height": 0.0,
+      "type": "Driving",
+      "width": 2.75
+     }
+    ],
+    "marks": [
+     0,
+     2,
+     0
+    ],
+    "name": "OSM service"
+   },
+   "stopLineA": true,
+   "stopLineB": true,
+   "treeModel": 0,
+   "treeSpacing": 12.0,
+   "treesLeft": false,
+   "treesRight": false
+  },
+  {
+   "a": 31,
+   "arrows": true,
+   "b": 33,
+   "crosswalkA": true,
+   "crosswalkB": true,
+   "ctrl": [],
+   "id": 34,
+   "lightModel": 0,
+   "lightSpacing": 24.0,
+   "lightsLeft": false,
+   "lightsRight": false,
+   "profile": {
+    "lanes": [
+     {
+      "dir": -1,
+      "height": 0.0,
+      "type": "Driving",
+      "width": 2.75
+     },
+     {
+      "dir": 1,
+      "height": 0.0,
+      "type": "Driving",
+      "width": 2.75
+     }
+    ],
+    "marks": [
+     0,
+     2,
+     0
+    ],
+    "name": "OSM service"
+   },
+   "stopLineA": true,
+   "stopLineB": true,
+   "treeModel": 0,
+   "treeSpacing": 12.0,
+   "treesLeft": false,
+   "treesRight": false
+  },
+  {
+   "a": 33,
+   "arrows": true,
+   "b": 11,
+   "crosswalkA": true,
+   "crosswalkB": true,
+   "ctrl": [],
+   "id": 35,
+   "lightModel": 0,
+   "lightSpacing": 24.0,
+   "lightsLeft": false,
+   "lightsRight": false,
+   "profile": {
+    "lanes": [
+     {
+      "dir": -1,
+      "height": 0.0,
+      "type": "Driving",
+      "width": 2.75
+     },
+     {
+      "dir": 1,
+      "height": 0.0,
+      "type": "Driving",
+      "width": 2.75
+     }
+    ],
+    "marks": [
+     0,
+     2,
+     0
+    ],
+    "name": "OSM service"
+   },
+   "stopLineA": true,
+   "stopLineB": true,
+   "treeModel": 0,
+   "treeSpacing": 12.0,
+   "treesLeft": false,
+   "treesRight": false
+  },
+  {
+   "a": 22,
+   "arrows": true,
+   "b": 1,
+   "crosswalkA": true,
+   "crosswalkB": true,
+   "ctrl": [],
+   "id": 36,
+   "lightModel": 0,
+   "lightSpacing": 24.0,
+   "lightsLeft": false,
+   "lightsRight": true,
+   "profile": {
+    "lanes": [
+     {
+      "dir": 1,
+      "height": 0.0,
+      "type": "Driving",
+      "width": 3.25
+     },
+     {
+      "dir": 0,
+      "height": 0.15000000596046448,
+      "type": "Sidewalk",
+      "width": 2.0
+     }
+    ],
+    "marks": [
+     1,
+     0,
+     0
+    ],
+    "name": "OSM tertiary"
+   },
+   "stopLineA": true,
+   "stopLineB": true,
+   "treeModel": 0,
+   "treeSpacing": 12.0,
+   "treesLeft": false,
+   "treesRight": false
+  },
+  {
+   "a": 1,
+   "arrows": true,
+   "b": 8,
+   "crosswalkA": true,
+   "crosswalkB": true,
+   "ctrl": [],
+   "id": 37,
+   "lightModel": 0,
+   "lightSpacing": 24.0,
+   "lightsLeft": false,
+   "lightsRight": true,
+   "profile": {
+    "lanes": [
+     {
+      "dir": 1,
+      "height": 0.0,
+      "type": "Driving",
+      "width": 3.25
+     },
+     {
+      "dir": 0,
+      "height": 0.15000000596046448,
+      "type": "Sidewalk",
+      "width": 2.0
+     }
+    ],
+    "marks": [
+     1,
+     0,
+     0
+    ],
+    "name": "OSM tertiary"
+   },
+   "stopLineA": true,
+   "stopLineB": true,
+   "treeModel": 0,
+   "treeSpacing": 12.0,
+   "treesLeft": false,
+   "treesRight": false
+  },
+  {
+   "a": 17,
+   "arrows": true,
+   "b": 1,
+   "crosswalkA": true,
+   "crosswalkB": true,
+   "ctrl": [
+    [
+     63.62076950073242,
+     0.0,
+     -22.2946834564209
+    ]
+   ],
+   "id": 38,
+   "lightModel": 0,
+   "lightSpacing": 24.0,
+   "lightsLeft": false,
+   "lightsRight": true,
+   "profile": {
+    "lanes": [
+     {
+      "dir": 1,
+      "height": 0.0,
+      "type": "Driving",
+      "width": 3.25
+     },
+     {
+      "dir": 0,
+      "height": 0.15000000596046448,
+      "type": "Sidewalk",
+      "width": 2.0
+     }
+    ],
+    "marks": [
+     1,
+     0,
+     0
+    ],
+    "name": "OSM secondary"
+   },
+   "stopLineA": true,
+   "stopLineB": true,
+   "treeModel": 0,
+   "treeSpacing": 12.0,
+   "treesLeft": false,
+   "treesRight": false
+  },
+  {
+   "a": 31,
+   "arrows": true,
+   "b": 39,
+   "crosswalkA": true,
+   "crosswalkB": true,
+   "ctrl": [
+    [
+     116.53475189208984,
+     0.0,
+     -11.622430801391602
+    ]
+   ],
+   "id": 40,
+   "lightModel": 0,
+   "lightSpacing": 24.0,
+   "lightsLeft": false,
+   "lightsRight": false,
+   "profile": {
+    "lanes": [
+     {
+      "dir": -1,
+      "height": 0.0,
+      "type": "Driving",
+      "width": 2.75
+     },
+     {
+      "dir": 1,
+      "height": 0.0,
+      "type": "Driving",
+      "width": 2.75
+     }
+    ],
+    "marks": [
+     0,
+     2,
+     0
+    ],
+    "name": "OSM service"
+   },
+   "stopLineA": true,
+   "stopLineB": true,
+   "treeModel": 0,
+   "treeSpacing": 12.0,
+   "treesLeft": false,
+   "treesRight": false
+  }
+ ],
+ "scenarios": [],
+ "signs": [
+  {
+   "facing": 1,
+   "id": 41,
+   "kind": "speed_limit",
+   "lateral": 5.849999904632568,
+   "road": 4,
+   "s": 12.0,
+   "value": 40.0
+  },
+  {
+   "facing": 1,
+   "id": 42,
+   "kind": "speed_limit",
+   "lateral": 5.849999904632568,
+   "road": 7,
+   "s": 12.0,
+   "value": 40.0
+  },
+  {
+   "facing": 1,
+   "id": 43,
+   "kind": "speed_limit",
+   "lateral": 3.2249999046325684,
+   "road": 9,
+   "s": 12.0,
+   "value": 40.0
+  },
+  {
+   "facing": 1,
+   "id": 44,
+   "kind": "speed_limit",
+   "lateral": 4.224999904632568,
+   "road": 10,
+   "s": 12.0,
+   "value": 40.0
+  },
+  {
+   "facing": 1,
+   "id": 45,
+   "kind": "speed_limit",
+   "lateral": 4.224999904632568,
+   "road": 15,
+   "s": 12.0,
+   "value": 40.0
+  },
+  {
+   "facing": 1,
+   "id": 46,
+   "kind": "speed_limit",
+   "lateral": 4.224999904632568,
+   "road": 16,
+   "s": 12.0,
+   "value": 40.0
+  },
+  {
+   "facing": 1,
+   "id": 47,
+   "kind": "speed_limit",
+   "lateral": 3.2249999046325684,
+   "road": 18,
+   "s": 12.0,
+   "value": 40.0
+  },
+  {
+   "facing": 1,
+   "id": 48,
+   "kind": "speed_limit",
+   "lateral": 4.224999904632568,
+   "road": 19,
+   "s": 12.0,
+   "value": 40.0
+  },
+  {
+   "facing": 1,
+   "id": 49,
+   "kind": "speed_limit",
+   "lateral": 4.224999904632568,
+   "road": 21,
+   "s": 12.0,
+   "value": 40.0
+  },
+  {
+   "facing": 1,
+   "id": 50,
+   "kind": "speed_limit",
+   "lateral": 5.849999904632568,
+   "road": 26,
+   "s": 12.0,
+   "value": 40.0
+  },
+  {
+   "facing": -1,
+   "id": 51,
+   "kind": "speed_limit",
+   "lateral": -5.849999904632568,
+   "road": 26,
+   "s": 38.14635467529297,
+   "value": 40.0
+  },
+  {
+   "facing": 1,
+   "id": 52,
+   "kind": "speed_limit",
+   "lateral": 5.849999904632568,
+   "road": 27,
+   "s": 12.0,
+   "value": 40.0
+  },
+  {
+   "facing": -1,
+   "id": 53,
+   "kind": "speed_limit",
+   "lateral": -5.849999904632568,
+   "road": 27,
+   "s": 45.77509307861328,
+   "value": 40.0
+  },
+  {
+   "facing": 1,
+   "id": 54,
+   "kind": "speed_limit",
+   "lateral": 5.849999904632568,
+   "road": 29,
+   "s": 12.0,
+   "value": 40.0
+  },
+  {
+   "facing": -1,
+   "id": 55,
+   "kind": "speed_limit",
+   "lateral": -5.849999904632568,
+   "road": 29,
+   "s": 38.71484375,
+   "value": 40.0
+  },
+  {
+   "facing": 1,
+   "id": 56,
+   "kind": "speed_limit",
+   "lateral": 3.2249999046325684,
+   "road": 36,
+   "s": 12.0,
+   "value": 40.0
+  },
+  {
+   "facing": 1,
+   "id": 57,
+   "kind": "speed_limit",
+   "lateral": 3.2249999046325684,
+   "road": 37,
+   "s": 12.0,
+   "value": 40.0
+  },
+  {
+   "facing": 1,
+   "id": 58,
+   "kind": "speed_limit",
+   "lateral": 3.2249999046325684,
+   "road": 38,
+   "s": 12.0,
+   "value": 40.0
+  }
+ ],
+ "terrain": {
+  "cell": 2.0,
+  "origin": [
+   -151.53884887695313,
+   -128.2122802734375
+  ],
+  "resX": 153,
+  "resZ": 129
+ },
+ "tunnels": [],
+ "version": 2
+}
